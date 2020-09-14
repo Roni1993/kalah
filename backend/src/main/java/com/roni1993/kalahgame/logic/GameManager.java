@@ -26,6 +26,7 @@ public class GameManager {
         var gameStateManager = new GameStateManager(eventingService);
         var gameId = gameStateManager.getGameId();
         games.put(gameId,gameStateManager);
+        eventingService.notifyGame(gameStateManager.getCurrentState());
         return gameStateManager.getGameDto();
     }
 

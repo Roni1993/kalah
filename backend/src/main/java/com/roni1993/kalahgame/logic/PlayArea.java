@@ -88,7 +88,7 @@ public class PlayArea {
         int seedsInGame = playerList.stream().limit(6).mapToInt(MutableInt::getValue).sum();
         if (seedsInGame == 0) {
             List<MutableInt> opponentHouses = getAllHousesMutable(opponent);
-            int opponentSeeds = opponentHouses.stream().limit(6).mapToInt(MutableInt::getValue).sum();
+            int opponentSeeds = opponentHouses.stream().mapToInt(MutableInt::getValue).sum();
             opponentHouses.forEach(house -> house.setValue(0));
             setSeedsAtHouse(opponentHouses, SEEDSTORE_INDEX, opponentSeeds);
 

@@ -24,28 +24,22 @@ public class EventingService {
     SimpMessagingTemplate msgTemplate;
 
     public void notifyGameState(UUID gameId, GameState state) {
+        notifyGame(state); // Notify on public vor overview
+
         var destination = String.format("/topic/game/%s/state",gameId);
-        logger.error("{} {}",destination, state);
+        logger.info("{} {}",destination, state);
         msgTemplate.convertAndSend(destination,state);
     }
 
     public void notifyRoundResult(UUID gameId, RoundResult result) {
         var destination = String.format("/topic/game/%s/roundresults",gameId);
-        logger.error("{} {}",destination, result);
+        logger.info("{} {}",destination, result);
         msgTemplate.convertAndSend(destination,result);
     }
 
-//    // /topic/game/4001625b-9130-4735-ac97-760a9645e7a4/state
-//    @SendTo("/topic/game/{gameId}/state")
-//    public GameState notifyGameState(String gameId, GameState state) {
-//        logger.error("{} {}",gameId,state);
-//        return state;
-//    }
-//
-//    @SendTo("/topic/game/{gameId}/roundresults")
-//    public RoundResult notifyRoundResult(String gameId, RoundResult result)
-//    {
-//        logger.error("{} {}",gameId,result);
-//        return result;
-//    }
+    public void notifyGame( GameState game) {
+        var destination = "/topic/games";
+        logger.info("{} {}",destination, game);
+        msgTemplate.convertAndSend(destination,game);
+    }
 }
