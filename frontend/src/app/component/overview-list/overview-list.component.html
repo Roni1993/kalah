@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#ID</th>
+            <th scope="col">Game State</th>
+            <th scope="col">PlayerOne</th>
+            <th scope="col">PlayerTwo</th>
+            <th scope="col">Winner</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td>{{game.gameId}}</td>
+            <td>{{game.state}}</td>
+            <td>{{game.playerOne?.name}}</td>
+            <td>{{game.playerTwo?.name}}</td>
+            <td>{{game.winner}}</td>
+            <td class="p-0"><button type="button" class="m-2 btn btn-success"
+                        (click)="joinGame.emit(game.gameId)" 
+                        [disabled]="game.state!='AWAITING_PLAYER'">
+                Join Game
+            </button></td>
+        </tr>
+    </tbody>
+</table>

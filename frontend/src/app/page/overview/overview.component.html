@@ -1,0 +1,12 @@
+<div class="card bg-light mx-3">
+    <div class="card-header">
+        <div class="btn-group btn-group-toggle float-right">
+            <span class="input-group-text">Actions</span>
+            <button type="button" class="btn btn-success" (click)="createGame()">Create new game</button>
+        </div>
+        <div><h4>Overview of all games</h4></div>
+    </div>
+    <div class="p-0 card-body">
+        <app-overview-list [games]="games" (joinGame)="joinGame($event)" ></app-overview-list>
+    </div>
+</div>
