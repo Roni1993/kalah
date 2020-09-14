@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:postgresql:12.2:///kalah
+    username: postgres
+    password: password
+
+kalah:
+  jwt:
+    expiration: 60
+    secret: oIS13005HHpKZ06bRFTCIfzYFA8eGAPhoIS13005HHpKZ06bRFTCIfzYFA8eGAPh
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

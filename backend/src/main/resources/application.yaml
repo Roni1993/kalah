@@ -1,0 +1,20 @@
+kalah:
+  jwt:
+    expiration: 60
+    secret: oIS13005HHpKZ06bRFTCIfzYFA8eGAPhoIS13005HHpKZ06bRFTCIfzYFA8eGAPh
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}/kalah
+    username: postgres
+    password: password
+
+server:
+  address: 0.0.0.0
+
+logging:
+  level:
+    org:
+      springframework:
+        security: WARN
