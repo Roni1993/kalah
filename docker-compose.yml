@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  frontend:
+    image: kalah-fe
+    ports:
+      - "4200:80"
+    networks:
+      - front-tier
+
+  backend:
+    image: docker.io/library/kalah-game:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    networks:
+      - front-tier
+
+networks:
+  front-tier:
