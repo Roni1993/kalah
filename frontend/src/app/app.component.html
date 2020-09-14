@@ -2,10 +2,10 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <a class="mx-2 navbar-brand mr-auto" [routerLink]="'/'">{{title}}</a>
         
-    <div class="collapse navbar-collapse">
+    <div class="navbar">
       <ul class="navbar-nav navbar-left">
         <li *ngFor="let link of links">
-          <a class="nav-link" routerLinkActive="active" ngbnavlink [routerLink]="link.link">{{link.title}}</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="link.link">{{link.title}}</a>
         </li>
       </ul>
     </div>
