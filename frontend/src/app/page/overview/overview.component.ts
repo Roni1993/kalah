@@ -14,8 +14,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
   games:GameDto[] = []
 
   playerInfo:PlayerInfo = {
-    name: "Roman",
-    color: "Green"
+    name: "",
+    color: ""
   }
   
   constructor(private api:GameControllerService,
