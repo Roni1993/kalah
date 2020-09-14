@@ -56,7 +56,8 @@ public class GameController {
             throw new GameRuleViolationException("Couldn't authorize the player");
 
         var player = (PlayerDto) auth.getDetails();
-        //TODO check if UUID of token aligns with path UUID
+        if (!Objects.equals(player.getGameId(),id))
+            throw new GameRuleViolationException("Only Players with the correct token are allowed to sow seeds");
         getGameSafe(id).sow(player.getPosition(),houseNumber);
 
         return ResponseEntity.status(HttpStatus.OK).build();

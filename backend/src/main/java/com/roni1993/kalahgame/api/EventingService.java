@@ -24,8 +24,7 @@ public class EventingService {
     SimpMessagingTemplate msgTemplate;
 
     public void notifyGameState(UUID gameId, GameState state) {
-        notifyGame(state); // Notify on public vor overview
-
+        notifyGame(state);
         var destination = String.format("/topic/game/%s/state",gameId);
         logger.info("{} {}",destination, state);
         msgTemplate.convertAndSend(destination,state);
@@ -38,7 +37,7 @@ public class EventingService {
     }
 
     public void notifyGame( GameState game) {
-        var destination = "/topic/games";
+        var destination = "/topic/overview";
         logger.info("{} {}",destination, game);
         msgTemplate.convertAndSend(destination,game);
     }

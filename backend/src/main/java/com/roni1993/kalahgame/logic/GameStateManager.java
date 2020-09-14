@@ -73,7 +73,6 @@ public class GameStateManager {
 
     private void setGameState(GameState newState) {
         currentState = newState;
-        //TODO: persist change to DB
         eventing.notifyGameState(gameId, currentState);
     }
 

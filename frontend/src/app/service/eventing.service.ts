@@ -40,7 +40,7 @@ export class EventingService {
         this.stats.emit(JSON.parse(state.body))
       });
 
-      this.client.subscribe(`/topic/games`, state => {
+      this.client.subscribe(`/topic/overview`, state => {
         this.games.emit(JSON.parse(state.body))
       });
     })
